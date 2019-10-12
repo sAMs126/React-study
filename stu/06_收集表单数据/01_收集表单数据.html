@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="root"></div>
+
+        <script type="text/javascript" src="../js/react.development.js"></script>
+        <script type="text/javascript" src="../js/react-dom.development.js"></script>
+        <script type="text/javascript" src="../js/prop-types.js"></script>
+        <script type="text/javascript" src="../js/babel.min.js"></script>
+        <script type="text/babel">
+            // 1. 定义组件
+            class FormComponent extends React.Component {
+                constructor(props) {
+                    super(props);
+                    // 初始化状态
+                    this.state = {
+                        password: ''
+                    };
+                }
+
+                render() {
+                    return (
+                        <form onSubmit={this.handleSubmit}>
+                            账户：
+                            <input type="text" ref={input => (this.nameInput = input)} />
+                            &nbsp; 密码：
+                            <input
+                                type="password"
+                                value={this.state.password}
+                                onChange={this.handleChange}
+                            />
+                            &nbsp;
+                            <input type="submit" />
+                        </form>
+                    );
+                }
+
+                handleSubmit = e => {
+                    // 阻止事件默认行为
+                    e.preventDefault();
+
+                    const username = this.nameInput.value;
+                    const { password } = this.state;
+                    console.log(`账户为${username}，密码为${password}`);
+                };
+
+                handleChange = e => {
+                    // 读取当前输入的值
+                    const password = e.target.value;
+                    // 更新 stats 中的值
+                    this.setState({ password });
+                };
+            }
+
+            // 2. 渲染组件标签
+            ReactDOM.render(<FormComponent />, document.getElementById('root'));
+        </script>
+    </body>
+</html>

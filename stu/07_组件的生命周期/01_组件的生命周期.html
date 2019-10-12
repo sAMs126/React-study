@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="root"></div>
+
+        <script type="text/javascript" src="../js/react.development.js"></script>
+        <script type="text/javascript" src="../js/react-dom.development.js"></script>
+        <script type="text/javascript" src="../js/prop-types.js"></script>
+        <script type="text/javascript" src="../js/babel.min.js"></script>
+        <script type="text/babel">
+            // 1. 定义组件
+            class LifeComponent extends React.Component {
+                constructor(props) {
+                    super(props);
+                    // 初始化状态
+                    this.state = {
+                        opacity: 1
+                    };
+                }
+
+                componentDidMount() {
+                    // 启动循环定时器
+                    this.intervalId = setInterval(() => {
+                        //注意区分：let 和 const
+                        let { opacity } = this.state;
+                        opacity -= 0.1;
+                        if (0 >= opacity) {
+                            opacity = 1;
+                        }
+                        this.setState({ opacity });
+                    }, 200);
+                }
+
+                distoryComponent = () => {
+                    // 销毁指定组件对象
+                    ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+                };
+
+                componentWillUnmount() {
+                    // 清理定时器
+                    clearInterval(this.intervalId);
+                }
+
+                render() {
+                    const { opacity } = this.state;
+                    return (
+                        <div>
+                            <h2 style={{ opacity }}>{this.props.msg}</h2>
+                            <button onClick={this.distoryComponent}>点击消失</button>
+                        </div>
+                    );
+                }
+            }
+
+            // 2. 渲染组件标签
+            ReactDOM.render(
+                <LifeComponent msg="淡入淡出效果展示" />,
+                document.getElementById('root')
+            );
+        </script>
+    </body>
+</html>

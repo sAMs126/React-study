@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="root"></div>
+
+        <script type="text/javascript" src="../js/react.development.js"></script>
+        <script type="text/javascript" src="../js/react-dom.development.js"></script>
+        <script type="text/javascript" src="../js/babel.min.js"></script>
+        <script type="text/babel">
+            // 定义展示列表
+            const names = ['JQuery', 'Vue', 'Angular', 'React'];
+
+            // 创建 React DOM
+            const vDom = (
+                <ul>
+                    {names.map((name, index) => (
+                        <li key={index}>{name}</li>
+                    ))}
+                </ul>
+            );
+
+            ReactDOM.render(vDom, document.getElementById('root'));
+        </script>
+    </body>
+</html>
