@@ -20,10 +20,16 @@ export default class App extends Component {
                     <div className="col-xs-2 col-xs-offset-2">
                         <div className="list-group">
                             {/*导航路由链接*/}
-                            <NavLink className="list-group-item" to="/about">
+                            <NavLink
+                                className="list-group-item"
+                                to="/about"
+                                activeClassName="activeClass">
                                 About
                             </NavLink>
-                            <NavLink className="list-group-item" to="/home">
+                            <NavLink
+                                className="list-group-item"
+                                to="/home"
+                                activeClassName="activeClass">
                                 Home
                             </NavLink>
                         </div>
