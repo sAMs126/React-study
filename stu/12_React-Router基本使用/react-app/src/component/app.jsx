@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
+// import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import About from '../views/about';
 import Home from '../views/home';
+
+import MyNavLink from './MyNavLink';
 
 export default class App extends Component {
     render() {
@@ -20,7 +23,7 @@ export default class App extends Component {
                     <div className="col-xs-2 col-xs-offset-2">
                         <div className="list-group">
                             {/*导航路由链接*/}
-                            <NavLink
+                            {/* <NavLink
                                 className="list-group-item"
                                 to="/about"
                                 activeClassName="activeClass">
@@ -31,7 +34,14 @@ export default class App extends Component {
                                 to="/home"
                                 activeClassName="activeClass">
                                 Home
-                            </NavLink>
+                            </NavLink> */}
+                            {/* 使用自定义路由组件 */}
+                            <MyNavLink className="list-group-item" to="/about">
+                                About
+                            </MyNavLink>
+                            <MyNavLink className="list-group-item" to="/home">
+                                Home
+                            </MyNavLink>
                         </div>
                     </div>
                     <div className="col-xs-6">
