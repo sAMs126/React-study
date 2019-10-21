@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, Switch, Route } from 'react-router-dom';
+import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
 
 import About from '../views/about';
 import Home from '../views/home';
@@ -35,7 +35,7 @@ export default class App extends Component {
                                 <Switch>
                                     <Route path="/about" component={About} />
                                     <Route path="/home" component={Home} />
-                                    {/* <Redirect to="/about" /> */}
+                                    <Redirect to="/about" />
                                 </Switch>
                             </div>
                         </div>
