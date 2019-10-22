@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+
+import MsgDetail from './msg-detail';
+import MyNavLink from '../component/my-nav-link';
 
 export default class Messages extends Component {
     state = {
@@ -22,13 +26,21 @@ export default class Messages extends Component {
 
     render() {
         return (
-            <ul>
-                {this.state.messages.map((message, index) => (
-                    <li key={index}>
-                        <a href="#">{message.title}</a>
-                    </li>
-                ))}
-            </ul>
+            <div>
+                <ul>
+                    {this.state.messages.map((message, index) => (
+                        <li key={index}>
+                            {/* 非路由链接 */}
+                            {/* <a href={`/home/messages/${message.id}`}>{message.title}</a> */}
+                            {/* 路由连接 */}
+                            <MyNavLink to={`/home/messages/${message.id}`}>
+                                {message.title}
+                            </MyNavLink>
+                        </li>
+                    ))}
+                </ul>
+                <Route path="/home/messages/:id" component={MsgDetail}></Route>
+            </div>
         );
     }
 }
