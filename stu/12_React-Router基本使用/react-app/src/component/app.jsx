@@ -5,7 +5,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import About from '../views/about';
 import Home from '../views/home';
 
-import MyNavLink from './MyNavLink';
+import MyNavLink from './my-nav-link';
 
 export default class App extends Component {
     render() {
