@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
-import { INCREMENT, DECREMENT } from '../redux/action-types';
+import * as actions from '../redux/actions';
 
 export default class App extends Component {
-    state = {
-        count: 0
-    };
+    // 状态已由 redux 管理
+    // state = {
+    //     count: 0
+    // };
 
     // 加
     add = () => {
         // 1. 获取增量值(string->number)
         const number = this.select.value * 1;
         // 2. 调用 store 的 dispatch() 更新状态
-        this.props.store.dispatch({ type: INCREMENT, data: number });
+        this.props.store.dispatch(actions.increment(number));
     };
 
     // 减
     sub = () => {
         const number = this.select.value * 1;
-        this.props.store.dispatch({ type: DECREMENT, data: number });
+        this.props.store.dispatch(actions.decrement(number));
     };
 
     // 奇数加
@@ -25,7 +26,7 @@ export default class App extends Component {
         const number = this.select.value * 1;
         const count = this.props.store.getState();
         if (1 === count % 2) {
-            this.props.store.dispatch({ type: INCREMENT, data: number });
+            this.props.store.dispatch(actions.increment(number));
         }
     };
 
@@ -33,7 +34,7 @@ export default class App extends Component {
     addAsync = () => {
         const number = this.select.value * 1;
         setTimeout(() => {
-            this.props.store.dispatch({ type: INCREMENT, data: number });
+            this.props.store.dispatch(actions.increment(number));
         }, 1000);
     };
 
