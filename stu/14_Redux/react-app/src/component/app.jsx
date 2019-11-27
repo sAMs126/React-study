@@ -48,7 +48,7 @@ export default class App extends Component {
             <div>
                 <p>click {count} times</p>
                 <div>
-                    {/* 使用费受控组 */}
+                    {/* 使用非受控组 */}
                     <select ref={select => (this.select = select)}>
                         <option value="1">1</option>
                         <option value="2">2</option>
