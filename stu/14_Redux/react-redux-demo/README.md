@@ -3,3 +3,6 @@
     ```powershell
     yarn add redux
     ```
+
+​:thinking:​ 思考
+    redux 和 react 组件的代码耦合度太高
