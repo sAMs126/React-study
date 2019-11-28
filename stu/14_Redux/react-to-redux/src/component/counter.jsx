@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { increment, decrement } from '../redux/actions';
-import { connect } from 'react-redux';
-class App extends Component {
+
+export default class Counter extends Component {
     static propTypes = {
         count: PropTypes.number.isRequired,
         increment: PropTypes.func.isRequired,
@@ -63,10 +62,3 @@ class App extends Component {
         );
     }
 }
-
-/**
- * 连接操作不会改变原来的组件类。
- *
- * 反而 **返回** 一个新的已与 Redux store 连接的组件类。
- */
-export default connect(state => ({ count: state }), { increment, decrement })(App);
