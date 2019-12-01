@@ -1,0 +1,18 @@
+li {
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.handle {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.list-group-item .centence {
+    padding: 0px 50px;
+}
+
+.user {
+    font-size: 22px;
+}
