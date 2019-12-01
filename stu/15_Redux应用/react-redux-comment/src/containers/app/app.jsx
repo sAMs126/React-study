@@ -3,26 +3,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CommentAdd from '../../component/comment-add/comment-add';
 import CommentList from '../../component/comment-list/comment-list';
-import { addComment, deleteComment } from '../../redux/actions';
+import { addComment, deleteComment, getComments } from '../../redux/actions';
 
 class App extends Component {
     static propTypes = {
         comments: PropTypes.array.isRequired,
         addComment: PropTypes.func.isRequired,
-        deleteComment: PropTypes.func.isRequired
+        deleteComment: PropTypes.func.isRequired,
+        getComments: PropTypes.func.isRequired
     };
 
     // 模拟异步 AJAX 请求
     componentDidMount() {
         // 获取数据
-        setTimeout(() => {
-            const comments = [
-                { username: 'Tom', content: 'heroic crab mam' },
-                { username: 'Mack', content: 'mal dual swig' }
-            ];
-            // 更新状态
-            this.setState({ comments });
-        }, 1000);
+        this.props.getComments();
     }
 
     render() {
@@ -52,6 +46,7 @@ export default connect(
     }),
     {
         addComment,
-        deleteComment
+        deleteComment,
+        getComments
     }
 )(App);
