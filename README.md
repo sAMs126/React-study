@@ -771,8 +771,7 @@ ReactDOM.render(
 
 Diff 基本原理：
 
-<div style="text-align: center;">
-    <img style="width: 60%;" src="https://s2.ax1x.com/2019/10/10/u7ZQXT.png" alt="u7ZQXT.png" border="0" /></div>
+![u7ZQXT.png](https://s2.ax1x.com/2019/10/10/u7ZQXT.png)
 
 ---
 
@@ -1237,15 +1236,14 @@ Redux 是一个独立专门用于做状态管理的 JS 库，其作用就是：�
      let store = createStore(todoApp)
      ```
    
-   - s
-   
-   - tore 的职责
+   - store 的职责
    
      - 维持应用的 state；
      - 提供 [getState()](https://www.redux.org.cn/docs/api/Store.html#getState) 方法获取 state；
      - 提供 [dispatch(action)](https://www.redux.org.cn/docs/api/Store.html#dispatch) 方法分发 action，触发 reducer 调用，产生新的 state；
      - 通过 [subscribe(listener)](https://www.redux.org.cn/docs/api/Store.html#subscribe) 注册监听器，当产生了新的 state 时，自动调用；
      - 通过 [subscribe(listener)](https://www.redux.org.cn/docs/api/Store.html#subscribe) 返回的函数注销监听器。
+   
 
 【例】[使用 redux 编写应用](https://github.com/sAMs126/React-study/tree/master/stu/14_Redux/react-redux-demo)
 
@@ -1279,7 +1277,7 @@ react-redux 是一个 react 插件库
 
 react-redux 用来简化在 react 应用中使用 redux
 
-**理解：**react - redux 将所有组件分为两大类
+**理解**：react - redux 将所有组件分为两大类
 
 1. UI 组件
    - 只负责 UI 的呈现，不带有任何业务逻辑
