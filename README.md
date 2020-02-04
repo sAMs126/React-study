@@ -65,12 +65,12 @@ Babel 会把 JSX 转译成一个名为 `React.createElement()` 函数调用。
 
 两种示例代码完全等效
 
-- jsx 语法*（简化）*
+- jsx 语法 *（简化）*
     ```jsx
       var vDom = <h1>Hello World</h1>;
     ```
 
-- JavaScript 语法*（本质）*
+- JavaScript 语法 *（本质）*
     ```jsx
       const vDom = React.createElement('h1', null, 'Hello World');
     ```
@@ -83,7 +83,7 @@ Babel 会把 JSX 转译成一个名为 `React.createElement()` 函数调用。
 ReactDOM.render(virtualDOM, containerDOM); // virtualDOM：虚拟DOM，containerDOM：目标DOM
 ```
 
-【例】显示 li 列表（[注意 Key 值得使用](https://reactjs.org/docs/reconciliation.html#recursing-on-children)）
+【例】显示 li 列表（[注意 Key 值的使用](https://reactjs.org/docs/reconciliation.html#recursing-on-children)）
 
 ```html
 <!-- 声明元素 -->
@@ -221,7 +221,7 @@ React 把组件看作是一个状态机（state machines），通过与用户的
    this.state.stateProp1
    ```
 
-3. 更新状态*（组件界面将更新）*
+3. 更新状态 *（组件界面将更新）*
 
    ```jsx
    this.setState({
@@ -771,7 +771,7 @@ ReactDOM.render(
 
 Diff 基本原理：
 
-![u7ZQXT.png](https://s2.ax1x.com/2019/10/10/u7ZQXT.png)
+![1Di0b9.png](https://s2.ax1x.com/2020/02/04/1Di0b9.png)
 
 ---
 
@@ -901,11 +901,7 @@ import Axios from 'axios'
 
 **组件间传值**
 
-```mermaid
-graph LR
-    A[兄弟组件 - 1] -->|props| B(共同父组件)
-    B --> |props|C[兄弟组件 - 2]
-```
+![1DCBM4.png](https://s2.ax1x.com/2020/02/04/1DCBM4.png)
 
 ---
 
